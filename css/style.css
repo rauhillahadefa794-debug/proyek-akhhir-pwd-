@@ -1,0 +1,370 @@
+:root {
+    --bg-color: #EBF4F6;
+    --navbar-color: #088395;
+    --text-primary: #09637E;
+    --text-secondary: #6a9a9a;
+    --cta-bg: #EBF4F6;
+    --hover-color: #57c5cd;
+    --border-color: rgba(122, 178, 178, 0.3); /* 30% opacity */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    padding-top: 0;
+}
+
+/* Navbar */
+.navbar {
+    background-color: var(--navbar-color);
+    /* Menaikkan padding atas-bawah agar navbar terasa lebih lebar/lega */
+    padding: 1.5rem 3rem; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(8, 131, 149, 0.1);
+    
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+}
+
+.navbar .navbar-logo {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #fff;
+    text-decoration: none;
+    font-style: italic;
+    letter-spacing: 1px;
+    
+}
+
+.navbar .navbar-nav a {
+    color: #fff;
+    text-decoration: none;
+    display: inline-block;
+    margin: 0 10px; /* Margin antar link navigasi */
+    font-size: 1.2rem;
+    transition: 1s;
+    margin-top: 1rem;
+    font-weight: 500;
+}
+
+.navbar .navbar-nav a:hover {
+    color: var(--hover-color);
+}
+
+/* Garis bawah saat hover */
+.navbar .navbar-nav a::after {
+    content: "";
+    display: block;
+    padding-bottom: 0.5rem;
+    border-bottom: 0.1rem solid var(--hover-color);
+    transform: scaleX(0);
+    transition: 0.2s linear;
+}
+
+.navbar .navbar-nav a:hover::after {
+    transform: scaleX(0.8);
+}
+
+/* Menghilangkan garis bawah khusus untuk ikon WhatsApp dan Hamburger */
+.navbar .navbar-extra a::after {
+    display: none !important;
+    content: none !important;
+}
+
+/* Memastikan ikon tidak memiliki dekorasi teks bawaan */
+.navbar .navbar-extra a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.5rem;
+    padding: 0 0.5rem;
+    transition: 0.3s;
+    display: inline-block; /* Agar padding dan transisi bekerja sempurna */
+    margin-left: 2rem;
+}
+
+.navbar .navbar-extra a:hover {
+    color: var(--hover-color);
+    transform: scale(1.1); /* Opsional: ikon sedikit membesar saat di-hover */
+}
+
+#hamburger-menu {
+  display: none;
+}
+
+/* laptop */
+@media (max-width: 1366px) {
+  html {
+    font-size: 90%;
+  }
+}
+
+/* tablet */
+@media (max-width: 758px) {
+  html {
+    font-size: 75%;
+  }
+
+  #hamburger-menu {
+    display: inline-block;
+  }
+
+  .navbar {
+    border: none !important;
+    box-shadow: none !important;
+    margin: 0 !important;
+  }
+
+  .navbar .navbar-nav {
+    position: absolute;
+    top: 100%;
+    right: -100%;
+    background-color: var(--navbar-color);
+    width: 30rem;
+    height: 100vh;
+    transition: right 0.3s ease-in-out;
+  }
+
+  .navbar .navbar-nav a{
+    color: var(--bg-color);
+    display: block;
+    margin: 1.5rem;
+    padding: 0.5rem;
+    font-size: 1.5rem;
+  }
+  .navbar .navbar-nav a::after{
+    transform-origin: 0 0;
+  }
+
+  .navbar .navbar-nav a:hover:after{
+    transform: scaleX(0.2);
+  }
+  .form-container {
+    width: 90%;
+    padding: 20px;
+    margin: 20px auto;
+  }
+
+  .hero-section {
+    margin-top: 0 !important;
+    padding-top: 2rem;
+    /* Pastikan tidak ada gap */
+}
+}
+
+/* phone */
+@media (max-width: 450px) {
+  html {
+    font-size: 55%;
+  }
+}
+
+/* Typography */
+h1, h2, h3 { color: var(--text-primary); }
+p { color: var(--text-secondary); line-height: 1.8; }
+
+
+
+/* Buttons */
+.btn {
+    background-color: var(--cta-bg);
+    color: var(--text-primary);
+    border: 2px solid var(--text-primary);
+    padding: 10px 25px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.btn:hover {
+    background-color: var(--hover-color);
+    color: white;
+    border-color: var(--hover-color);
+    box-shadow: 0 5px 15px rgba(9, 99, 126, 0.4);
+    transform: translateY(-2px);
+}
+
+.btn-danger {
+    border-color: #dc3545;
+    color: #dc3545;
+}
+.btn-danger:hover {
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+
+/* Layouting & Cards */
+.container {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.card {
+    background-color: var(--navbar-color);
+    color: white;
+    padding: 30px;
+    border-radius: 15px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card h3 { color: white; margin-bottom: 15px; }
+.card p { color: #EBF4F6; font-size: 14px; }
+.card ul { text-align: left; margin: 20px 0; color: #EBF4F6; font-size: 14px; padding-left: 20px; }
+
+/* Forms */
+.form-container {
+    background: white;
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 40px;
+    border-radius: 15px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 15px 35px rgba(9, 99, 126, 0.1);
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--text-primary);
+    font-weight: bold;
+}
+
+.form-group input, .form-group select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    outline: none;
+    transition: border 0.3s;
+}
+
+.form-group input:focus, .form-group select:focus {
+    border-color: var(--navbar-color);
+    box-shadow: 0 0 8px rgba(8, 131, 149, 0.2);
+}
+
+/* Landing Info Box */
+.info-box {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    border: 1px solid var(--border-color);
+    max-width: 600px;
+    margin: 0 auto;
+}
+.info-box h2 { margin-bottom: 20px; }
+.info-box strong { color: var(--navbar-color); }
+
+/* Aktifkan Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Penyesuaian Section agar tidak tertutup Navbar saat scroll */
+section {
+    padding: 0.5rem 2rem;
+    scroll-margin-top: 100px; /* Jarak agar judul tidak tertutup navbar */
+}
+
+/* Hero Section (Home) */
+.hero-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Mulai dengan sedikit warna agar tidak terlihat putih di bawah navbar */
+    background: linear-gradient(
+        to bottom, 
+        rgba(8, 131, 149, 0.2) 0%, /* Memberi sedikit warna teal di atas */
+        rgba(235, 244, 246, 0) 20%, 
+        rgba(235, 244, 246, 1) 100%
+    ), 
+    url("../assets/heroHome.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-section h1 { font-size: 3rem; margin-bottom: 1rem; }
+.hero-section .pemanis { font-style: italic; margin-bottom: 2rem; }
+
+/* Portofolio Slider Style */
+.slider-wrapper {
+    overflow: hidden;
+    margin-top: 30px;
+}
+
+.slider {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 20px;
+    padding-bottom: 20px;
+}
+
+.slider::-webkit-scrollbar { display: none; } /* Sembunyikan scrollbar */
+
+.slide {
+    flex: 0 0 100%; /* Satu gambar memenuhi satu layar container */
+    scroll-snap-align: start;
+    position: relative;
+}
+
+.slide img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+.slide-info {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    background: var(--navbar-color);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+}
+
+/* Mobile Menu Active State */
+.navbar .navbar-nav.active {
+    right: 0;
+}
