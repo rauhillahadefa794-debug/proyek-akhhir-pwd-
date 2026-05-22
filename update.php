@@ -44,30 +44,32 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
     </nav>
 
-    <div class="form-container">
-        <h2 style="text-align: center; margin-bottom: 20px; color: var(--navbar-color);">PERBARUI DATA</h2>
-        <form method="POST">
-            <div class="form-group">
-                <label>Nama Lengkap</label>
-                <input type="text" name="nama_lengkap" value="<?= htmlspecialchars($order['nama_lengkap']) ?>" required>
-            </div>
-            <div class="form-group">
-                <label>Lokasi Pengiriman</label>
-                <input type="text" name="lokasi" value="<?= htmlspecialchars($order['lokasi']) ?>" required>
-            </div>
-            <div class="form-group">
-                <label>Nomor Telepon</label>
-                <input type="number" name="telepon" value="<?= htmlspecialchars($order['telepon']) ?>" required>
-            </div>
-            <div class="form-group">
-                <label>Pilihan Pembayaran</label>
-                <select name="pembayaran" required>
-                    <option value="Debit" <?= ($order['pembayaran'] == 'Debit') ? 'selected' : '' ?>>Transfer Debit</option>
-                    <option value="E-Wallet" <?= ($order['pembayaran'] == 'E-Wallet') ? 'selected' : '' ?>>E-Wallet</option>
-                </select>
-            </div>
-            <button type="submit" class="btn" style="width: 100%; background: var(--navbar-color); color: white;">SIMPAN PERUBAHAN</button>
-        </form>
+    <div class="page-center-wrapper">
+        <div class="form-container">
+            <h2 style="color: var(--navbar-color);">PERBARUI DATA</h2>
+            <form method="POST">
+                <div class="form-group">
+                    <label>Nama Lengkap</label>
+                    <input type="text" name="nama_lengkap" value="<?= htmlspecialchars($order['nama_lengkap']) ?>" required>
+                </div>
+                <div class="form-group">
+                    <label>Lokasi Pengiriman</label>
+                    <input type="text" name="lokasi" value="<?= htmlspecialchars($order['lokasi']) ?>" required>
+                </div>
+                <div class="form-group">
+                    <label>Nomor Telepon</label>
+                    <input type="number" name="telepon" value="<?= htmlspecialchars($order['telepon']) ?>" required>
+                </div>
+                <div class="form-group">
+                    <label>Pilihan Pembayaran</label>
+                    <select name="pembayaran" required>
+                        <option value="Debit" <?= ($order['pembayaran'] == 'Debit') ? 'selected' : '' ?>>Transfer Debit</option>
+                        <option value="E-Wallet" <?= ($order['pembayaran'] == 'E-Wallet') ? 'selected' : '' ?>>E-Wallet</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn" style="width: 100%;">SIMPAN PERUBAHAN</button>
+            </form>
+        </div>
     </div>
 </body>
 </html>

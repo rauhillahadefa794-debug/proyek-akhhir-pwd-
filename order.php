@@ -49,32 +49,34 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
     </nav>
 
-    <div class="form-container">
-        <h2 style="text-align: center; margin-bottom: 20px; color: var(--navbar-color);">ISI DATA</h2>
-        <p style="text-align:center; margin-bottom: 20px;">Paket Terpilih: <strong><?= htmlspecialchars($paket) ?></strong></p>
-        
-        <form method="POST">
-            <div class="form-group">
-                <label>Nama Lengkap</label>
-                <input type="text" name="nama_lengkap" required placeholder="Masukkan nama lengkap Anda">
-            </div>
-            <div class="form-group">
-                <label>Lokasi Pengiriman</label>
-                <input type="text" name="lokasi" required placeholder="Alamat lengkap / Kota">
-            </div>
-            <div class="form-group">
-                <label>Nomor Telepon</label>
-                <input type="number" name="telepon" required placeholder="08xxxxxxxxxx">
-            </div>
-            <div class="form-group">
-                <label>Pilihan Pembayaran</label>
-                <select name="pembayaran" required>
-                    <option value="Debit">Transfer Debit</option>
-                    <option value="E-Wallet">E-Wallet (OVO/Dana/GoPay)</option>
-                </select>
-            </div>
-            <button type="submit" class="btn" style="width: 100%;">MASUK / PROSES</button>
-        </form>
+    <div class="page-center-wrapper">
+        <div class="form-container">
+            <h2 style="color: var(--navbar-color); margin-bottom: 10px;">ISI DATA</h2>
+            <p style="text-align:center; margin-bottom: 20px;">Paket Terpilih: <strong><?= htmlspecialchars($paket) ?></strong></p>
+            
+            <form method="POST">
+                <div class="form-group">
+                    <label>Nama Lengkap</label>
+                    <input type="text" name="nama_lengkap" required placeholder="Masukkan nama lengkap Anda">
+                </div>
+                <div class="form-group">
+                    <label>Lokasi Pengiriman</label>
+                    <input type="text" name="lokasi" required placeholder="Alamat lengkap / Kota">
+                </div>
+                <div class="form-group">
+                    <label>Nomor Telepon</label>
+                    <input type="number" name="telepon" required placeholder="08xxxxxxxxxx">
+                </div>
+                <div class="form-group">
+                    <label>Pilihan Pembayaran</label>
+                    <select name="pembayaran" required>
+                        <option value="Debit">Transfer Debit</option>
+                        <option value="E-Wallet">E-Wallet (OVO/Dana/GoPay)</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn" style="width: 100%;">SUBMIT PESANAN</button>
+            </form>
+        </div>
     </div>
 </body>
 </html>

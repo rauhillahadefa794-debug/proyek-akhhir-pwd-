@@ -18,7 +18,7 @@
 body {
     background-color: var(--bg-color);
     color: var(--text-primary);
-    padding-top: 0;
+    padding-top: 0; /* Tetap 0 agar hero image di Home (index.php) tidak turun */
 }
 
 /* Navbar */
@@ -45,7 +45,6 @@ body {
     text-decoration: none;
     font-style: italic;
     letter-spacing: 1px;
-    
 }
 
 .navbar .navbar-nav a {
@@ -143,6 +142,7 @@ body {
     padding: 0.5rem;
     font-size: 1.5rem;
   }
+  
   .navbar .navbar-nav a::after{
     transform-origin: 0 0;
   }
@@ -150,6 +150,7 @@ body {
   .navbar .navbar-nav a:hover:after{
     transform: scaleX(0.2);
   }
+  
   .form-container {
     width: 90%;
     padding: 20px;
@@ -159,8 +160,7 @@ body {
   .hero-section {
     margin-top: 0 !important;
     padding-top: 2rem;
-    /* Pastikan tidak ada gap */
-}
+  }
 }
 
 /* phone */
@@ -173,8 +173,6 @@ body {
 /* Typography */
 h1, h2, h3 { color: var(--text-primary); }
 p { color: var(--text-secondary); line-height: 1.8; }
-
-
 
 /* Buttons */
 .btn {
@@ -309,10 +307,9 @@ section {
     display: flex;
     align-items: center;
     justify-content: center;
-    /* Mulai dengan sedikit warna agar tidak terlihat putih di bawah navbar */
     background: linear-gradient(
         to bottom, 
-        rgba(8, 131, 149, 0.2) 0%, /* Memberi sedikit warna teal di atas */
+        rgba(8, 131, 149, 0.2) 0%, 
         rgba(235, 244, 246, 0) 20%, 
         rgba(235, 244, 246, 1) 100%
     ), 
@@ -342,7 +339,7 @@ section {
 .slider::-webkit-scrollbar { display: none; } /* Sembunyikan scrollbar */
 
 .slide {
-    flex: 0 0 100%; /* Satu gambar memenuhi satu layar container */
+    flex: 0 0 100%; 
     scroll-snap-align: start;
     position: relative;
 }
@@ -367,4 +364,45 @@ section {
 /* Mobile Menu Active State */
 .navbar .navbar-nav.active {
     right: 0;
+}
+
+
+/* ==========================================================================
+   TAMBAHAN REVISI: FIX FIXED NAVBAR & LAYOUT CENTERING
+   ========================================================================== */
+
+/* Wrapper khusus untuk halaman non-home agar konten turun di bawah navbar & terpusat */
+.page-center-wrapper {
+    padding-top: 120px; /* Mencegah konten tertabrak navbar */
+    padding-bottom: 60px;
+    padding-left: 20px;
+    padding-right: 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Tengah vertikal */
+    align-items: center;     /* Tengah horizontal */
+    width: 100%;
+}
+
+/* Reset auto-margin untuk elemen dalam wrapper agar tidak konflik dengan flexbox */
+.page-center-wrapper .container,
+.page-center-wrapper .form-container,
+.page-center-wrapper .info-box {
+    margin: 0 auto; 
+    width: 100%;
+}
+
+/* Judul halaman di wrapper center */
+.page-center-wrapper h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Responsif khusus wrapper untuk perangkat mobile */
+@media (max-width: 768px) {
+    .page-center-wrapper {
+        padding-top: 100px;
+        padding-bottom: 40px;
+    }
 }
