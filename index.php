@@ -34,7 +34,7 @@
             <h1>Terangi Masa Depan, <br>Mulai dari Atap Anda.</h1>
             <p>"Wujudkan kemandirian energi dengan solusi panel surya cerdas yang hemat, bersih, dan berkelanjutan."</p>
             <p class="pemanis">Eversol hadir untuk membantu Anda mengubah sinar matahari menjadi tabungan masa depan bagi keluarga dan bumi.</p>
-            <a href="packages.php" class="btn">MULAI KONSULTASI</a>
+            <a href="packages.php" class="btn">MULAI ORDER</a>
         </div>
     </section>
 
